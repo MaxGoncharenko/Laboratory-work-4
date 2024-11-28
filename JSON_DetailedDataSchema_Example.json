@@ -32,7 +32,7 @@
             "properties": {
                 "lastNotification": {
                     "type": "string",
-                    "pattern": "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ0-9,.!?\' ]+$"
+                    "pattern": "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ0-9,.!?\\' ]+$"
                 },
                 "notificationCount": {
                     "type": "integer",
