@@ -1,0 +1,17 @@
+name: JSON Linter
+on:
+  push:
+    branches: main
+
+jobs:
+  JSONLint:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v3
+
+        - name: Install JSONLint
+          run: npm install -g jsonlint
+
+        - name: Lint JSON File
+          run: jsonlint JSON_DetailedDataSchema_Example.json -q
