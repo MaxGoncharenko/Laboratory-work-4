@@ -1,0 +1,94 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Екологічна та творча платформа",
+    "type": "object",
+    "properties": {
+        "Користувач-поет": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "maxLength": 20,
+                    "pattern": "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]{1,20}$"
+                },
+                "surname": {
+                    "type": "string",
+                    "maxLength": 20,
+                    "pattern": "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]{1,20}$"
+                },
+                "email": {
+                    "type": "string",
+                    "format": "email",
+                    "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+                },
+                "profession": {
+                    "type": "string"
+                }
+            },
+            "required": ["name", "surname", "email"]
+        },
+        "Система сповіщень": {
+            "type": "object",
+            "properties": {
+                "lastNotification": {
+                    "type": "string",
+                    "pattern": "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ0-9,.!?\' ]+$"
+                },
+                "notificationCount": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            },
+            "required": ["lastNotification", "notificationCount"]
+        },
+        "Фінансування проєктів": {
+            "type": "object",
+            "properties": {
+                "projectName": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "pattern": "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ0-9 ]+$"
+                },
+                "budget": {
+                    "type": "number",
+                    "minimum": 0
+                },
+                "status": {
+                    "type": "string",
+                    "enum": ["active", "completed", "pending"]
+                }
+            },
+            "required": ["projectName", "budget", "status"]
+        },
+        "Освітні матеріали": {
+            "type": "object",
+            "properties": {
+                "materials": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "title": {
+                                "type": "string",
+                                "maxLength": 50,
+                                "pattern": "^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ0-9 ]+$"
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": ["відео", "стаття"]
+                            },
+                            "link": {
+                                "type": "string",
+                                "format": "uri",
+                                "pattern": "^(http|https)://[a-zA-Z0-9./]+$"
+                            }
+                        },
+                        "required": ["title", "type", "link"]
+                    }
+                }
+            },
+            "required": ["materials"]
+        }
+    },
+    "required": ["Користувач-поет", "Система сповіщень", "Фінансування проєктів", "Освітні матеріали"]
+}
