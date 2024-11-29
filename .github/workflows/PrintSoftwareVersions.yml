@@ -6,10 +6,10 @@ jobs:
   printSoftwareVersions:
     runs-on: ubuntu-latest
     steps:
-          - name: Print Python Version
-            run: python --version
+          - name: Print Node Version
+            run: node --version
   printDatabaseVersions:
     runs-on: ubuntu-latest
     steps:
-        - name: Print MySQL Version
-          run: mysql --version
+        - name: Print PostgreSQL Version
+          run: postgresql --version
