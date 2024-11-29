@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: Print PostgreSQL Version
-          run: postgresql --version
+          run: psql --version
